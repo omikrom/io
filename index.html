@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+
+<body>
+    <div class="clock--container" style="position:absolute; top:0; right:0; height:15%; width:50%; text-align: right; padding-right:3%;padding-top:1%;">
+        <div class="clock--date" id="date" style=" display: flex; justify-content: flex-end;">date</div>
+        <div class="clock--time" id="time" style="display:flex; font-size:1.4rem;justify-content: flex-end;">
+            <div id="hours" class="clock--hours" style="font-weight: bold;"></div>
+            <div class="clock--divide" style="padding-left:2px;padding-right:2px;">:</div>
+            <div id="minutes" class="clock--minutes" style="font-weight: bold;"></div>
+            <div id="seconds" class="clock--seconds" style="font-size:0.6rem;"></div>
+        </div>
+    </div>
+    <div id="content" style="position:absolute; top:0; left:0; height:100vh; width:100vw; overflow-y: scroll;">
+        <div class="content" style="height:100vh;overflow-y: scroll; color:white;">
+            <div class="page-logo" style="height:100vh; display:flex; flex-direction: column; align-items: center; justify-content: center; padding-left:3%; padding-right:3%;">
+                <div class="logo" style="text-align:center;">
+                    <h1>IO-stack</h1>
+                    <h2 style="font-style:italic; font-weight:300;">Creative full-stack web development</h2>
+                </div>
+            </div>
+            <div class="quote" style="height:100vh; display:flex; flex-direction: column; align-items: center; justify-content: center; padding-left:3%; padding-right:3%;">
+                <h1>Life is a wave of creative consciousness rippling through space and time that we have the honor of aethetically surfing.</h1>
+                <h4 style="align-self: flex-start; margin:0; margin-left:3%;">- Alex Grey</h4>
+            </div>
+
+            <div class="projects">
+                <div class="project--title">
+                    <h4>Our projects</h4>
+                </div>
+                <div class="project--content">You can view our projects @ github</div>
+                <div class="project--button"><button>Here</button></div>
+            </div>
+            <div class="contact">
+                <div class="contact--title">
+                    <h4>Contact us</h4>
+                </div>
+                <div class="contact--subtitle">
+                    <h5>We'd love to hear from you</h5>
+                </div>
+                <form id="contactForm">
+                    <div class="contact--form">
+                        <div class="contact--form--name">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name.." />
+                        </div>
+                        <div class="contact--form--email">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your email.." />
+                        </div>
+                        <div class="contact--form--message">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="ui-controls" style="position:absolute; bottom:0; right:0;">
+        <div class="ui-controls--button">
+            <button id="toggle">Toggle</button>
+            <button id="increase_size">increase size</button>
+            <button id="decrease_size">decrease size</button>
+            <div class="slider--container" style="width:100%;">
+                <input type="range" min="1" max="10" value="5" class="slider" id="frequency" style="width:75%;">
+            </div>
+            <div>
+                <input type="range" min="1" max="10" value="5" class="slider" id="amplitude">
+            </div>
+            <div class="slider--container">
+                <input type="range" min="1" max="10" value="5" class="slider" id="speed">
+            </div>
+            <div class="colour--container">
+                <label for="colour">Light 1 colour: </label><input type="color" id="colour" name="colour" value="#ffffff">
+            </div>
+            <div class="colour--container">
+                <label for="colourTwo">Light 2 colour: </label><input type="color" id="colourTwo" name="colourTwo" value="#ffffff">
+            </div>
+        </div>
+    </div>
+    <div id="canvas--container" style="width:100vw; height:100vh; overflow: hidden !important; z-index:-10;">
+        <canvas id="cvs"></canvas>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>
