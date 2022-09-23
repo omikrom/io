@@ -45,21 +45,24 @@ const render = function(options) {
     }
     light.position.set(10, 20, 10);
     scene.add(light);
-    const lightHelper = new THREE.PointLightHelper(light, 1);
-    scene.add(lightHelper);
+    //const lightHelper = new THREE.PointLightHelper(light, 1);
+    //scene.add(lightHelper);
 
 
-    const light2 = new THREE.PointLight(0xffffff, 0.5, 100);
+    var light2 = new THREE.PointLight(0xffffff, 0.5, 42);
     light2.position.set(-10, -20, -10);
     scene.add(light2);
-    const lightHelper2 = new THREE.PointLightHelper(light2, 1);
-    scene.add(lightHelper2)
+    //const lightHelper2 = new THREE.PointLightHelper(light2, 1);
+    //scene.add(lightHelper2)
 
     let pivotPoint = new THREE.Object3D();
     pivotPoint.position.set(0, 0, 0);
     scene.add(pivotPoint);
+
     pivotPoint.add(light);
     pivotPoint.add(light2);
+
+
 
 
     const geometry = new THREE.SphereGeometry(0.1, 8, 8);
@@ -100,7 +103,7 @@ const render = function(options) {
 
 
     camera.position.z = 30;
-    camera.position.y = 15;
+    camera.position.y = 10;
     camera.position.x = 10;
     /*
     var steps = 0;
@@ -191,15 +194,46 @@ const render = function(options) {
 
 
     let colorChoice = document.querySelector('#colour');
+    let colourValue1;
     colorChoice.addEventListener('input', function() {
-        let color = new THREE.Color(colorChoice2.value);
+        colourValue1 = colorChoice.value;
+    });
+
+    colorChoice.addEventListener('change', function() {
+        let color = new THREE.Color(colourValue1);
         light.color = color;
     });
 
     let colorChoice2 = document.querySelector('#colourTwo');
+    let colourValue2;
+
     colorChoice2.addEventListener('input', function() {
-        let color = new THREE.Color(colorChoice2.value);
+        colourValue2 = colorChoice2.value;
+    });
+
+    colorChoice2.addEventListener('change', function() {
+        let color = new THREE.Color(colourValue2);
         light2.color = color;
+    });
+
+    let lightBrightness1 = document.querySelector('#light1brightness');
+    lightBrightness1.addEventListener('input', function() {
+        let sliderValue = 0;
+        for (let i = 0; i < lightBrightness1.value; i++) {
+            sliderValue += 1;
+        }
+        sliderValue = sliderValue / 50;
+        light.intensity = sliderValue;
+    });
+
+    let lightBrightness2 = document.querySelector('#light2brightness');
+    lightBrightness2.addEventListener('input', function() {
+        let sliderValue = 0;
+        for (let i = 0; i < lightBrightness2.value; i++) {
+            sliderValue += 1;
+        }
+        sliderValue = sliderValue / 50;
+        light2.intensity = sliderValue;
     });
 
 
